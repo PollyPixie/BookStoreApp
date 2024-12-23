@@ -18,7 +18,7 @@ extension BookTypeManager: IBookTypeManager {
         [
             BookType(type: "Выбор редакции", books: [
                 Book(image: "book1", title: "Подводное бормотание", isNew: true),
-                Book(image: "book2", title: "Один в поле воеин", isNew: true),
+                Book(image: "book2", title: "Один в поле воин", isNew: true),
                 Book(image: "book3", title: "Мне ничего не жаль"),
                 Book(image: "book4", title: "Кто ты воин?", isNew: true),
                 Book(image: "book5", title: "Можно я с тобой?")

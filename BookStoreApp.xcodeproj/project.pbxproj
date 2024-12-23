@@ -14,6 +14,8 @@
 		731A9E662D19947A00684F55 /* BookTypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E652D19947A00684F55 /* BookTypeManager.swift */; };
 		731A9E682D19949800684F55 /* BookType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E672D19949800684F55 /* BookType.swift */; };
 		731A9E6A2D1995BC00684F55 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E692D1995BC00684F55 /* CollectionViewController.swift */; };
+		731A9E6C2D199B9800684F55 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E6B2D199B9800684F55 /* SectionHeaderView.swift */; };
+		731A9E6E2D19F87A00684F55 /* CustomBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E6D2D19F87A00684F55 /* CustomBookCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		731A9E652D19947A00684F55 /* BookTypeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTypeManager.swift; sourceTree = "<group>"; };
 		731A9E672D19949800684F55 /* BookType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookType.swift; sourceTree = "<group>"; };
 		731A9E692D1995BC00684F55 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		731A9E6B2D199B9800684F55 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		731A9E6D2D19F87A00684F55 /* CustomBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBookCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				731A9E692D1995BC00684F55 /* CollectionViewController.swift */,
 				731A9E672D19949800684F55 /* BookType.swift */,
 				731A9E652D19947A00684F55 /* BookTypeManager.swift */,
+				731A9E6B2D199B9800684F55 /* SectionHeaderView.swift */,
+				731A9E6D2D19F87A00684F55 /* CustomBookCell.swift */,
 				731A9E5A2D18683600684F55 /* Assets.xcassets */,
 				731A9E5C2D18683700684F55 /* LaunchScreen.storyboard */,
 				731A9E5F2D18683700684F55 /* Info.plist */,
@@ -141,9 +147,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				731A9E6A2D1995BC00684F55 /* CollectionViewController.swift in Sources */,
+				731A9E6C2D199B9800684F55 /* SectionHeaderView.swift in Sources */,
 				731A9E662D19947A00684F55 /* BookTypeManager.swift in Sources */,
 				731A9E522D18683500684F55 /* AppDelegate.swift in Sources */,
 				731A9E682D19949800684F55 /* BookType.swift in Sources */,
+				731A9E6E2D19F87A00684F55 /* CustomBookCell.swift in Sources */,
 				731A9E542D18683500684F55 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
