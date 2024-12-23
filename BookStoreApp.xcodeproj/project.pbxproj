@@ -9,19 +9,23 @@
 /* Begin PBXBuildFile section */
 		731A9E522D18683500684F55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E512D18683500684F55 /* AppDelegate.swift */; };
 		731A9E542D18683500684F55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E532D18683500684F55 /* SceneDelegate.swift */; };
-		731A9E562D18683500684F55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E552D18683500684F55 /* ViewController.swift */; };
 		731A9E5B2D18683700684F55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731A9E5A2D18683600684F55 /* Assets.xcassets */; };
 		731A9E5E2D18683700684F55 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 731A9E5D2D18683700684F55 /* Base */; };
+		731A9E662D19947A00684F55 /* BookTypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E652D19947A00684F55 /* BookTypeManager.swift */; };
+		731A9E682D19949800684F55 /* BookType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E672D19949800684F55 /* BookType.swift */; };
+		731A9E6A2D1995BC00684F55 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E692D1995BC00684F55 /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		731A9E4E2D18683500684F55 /* BookStoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		731A9E512D18683500684F55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		731A9E532D18683500684F55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		731A9E552D18683500684F55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		731A9E5A2D18683600684F55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		731A9E5D2D18683700684F55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		731A9E5F2D18683700684F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		731A9E652D19947A00684F55 /* BookTypeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTypeManager.swift; sourceTree = "<group>"; };
+		731A9E672D19949800684F55 /* BookType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookType.swift; sourceTree = "<group>"; };
+		731A9E692D1995BC00684F55 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,9 @@
 			children = (
 				731A9E512D18683500684F55 /* AppDelegate.swift */,
 				731A9E532D18683500684F55 /* SceneDelegate.swift */,
-				731A9E552D18683500684F55 /* ViewController.swift */,
+				731A9E692D1995BC00684F55 /* CollectionViewController.swift */,
+				731A9E672D19949800684F55 /* BookType.swift */,
+				731A9E652D19947A00684F55 /* BookTypeManager.swift */,
 				731A9E5A2D18683600684F55 /* Assets.xcassets */,
 				731A9E5C2D18683700684F55 /* LaunchScreen.storyboard */,
 				731A9E5F2D18683700684F55 /* Info.plist */,
@@ -134,8 +140,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				731A9E562D18683500684F55 /* ViewController.swift in Sources */,
+				731A9E6A2D1995BC00684F55 /* CollectionViewController.swift in Sources */,
+				731A9E662D19947A00684F55 /* BookTypeManager.swift in Sources */,
 				731A9E522D18683500684F55 /* AppDelegate.swift in Sources */,
+				731A9E682D19949800684F55 /* BookType.swift in Sources */,
 				731A9E542D18683500684F55 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
