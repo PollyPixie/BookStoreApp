@@ -64,16 +64,56 @@
 			children = (
 				731A9E512D18683500684F55 /* AppDelegate.swift */,
 				731A9E532D18683500684F55 /* SceneDelegate.swift */,
-				731A9E692D1995BC00684F55 /* CollectionViewController.swift */,
-				731A9E672D19949800684F55 /* BookType.swift */,
-				731A9E652D19947A00684F55 /* BookTypeManager.swift */,
-				731A9E6B2D199B9800684F55 /* SectionHeaderView.swift */,
-				731A9E6D2D19F87A00684F55 /* CustomBookCell.swift */,
-				731A9E5A2D18683600684F55 /* Assets.xcassets */,
-				731A9E5C2D18683700684F55 /* LaunchScreen.storyboard */,
+				7380451E2D1D7D9700A8E916 /* ViewControllers */,
+				7380451F2D1D7DAA00A8E916 /* Models */,
+				738045202D1D7DB900A8E916 /* Managers */,
+				7380451D2D1D7D7F00A8E916 /* Custom Elements */,
+				738045212D1D7DD400A8E916 /* Resources */,
 				731A9E5F2D18683700684F55 /* Info.plist */,
 			);
 			path = BookStoreApp;
+			sourceTree = "<group>";
+		};
+		7380451D2D1D7D7F00A8E916 /* Custom Elements */ = {
+			isa = PBXGroup;
+			children = (
+				731A9E6B2D199B9800684F55 /* SectionHeaderView.swift */,
+				731A9E6D2D19F87A00684F55 /* CustomBookCell.swift */,
+			);
+			path = "Custom Elements";
+			sourceTree = "<group>";
+		};
+		7380451E2D1D7D9700A8E916 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				731A9E692D1995BC00684F55 /* CollectionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7380451F2D1D7DAA00A8E916 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				731A9E672D19949800684F55 /* BookType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		738045202D1D7DB900A8E916 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				731A9E652D19947A00684F55 /* BookTypeManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		738045212D1D7DD400A8E916 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				731A9E5A2D18683600684F55 /* Assets.xcassets */,
+				731A9E5C2D18683700684F55 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
