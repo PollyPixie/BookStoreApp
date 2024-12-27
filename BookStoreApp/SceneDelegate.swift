@@ -7,18 +7,32 @@
 
 import UIKit
 
+enum Scene {
+    case collection
+    case multipleSections
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        let collectionViewController = CollectionViewController()
-        collectionViewController.bookManager = BookTypeManager()
         window = UIWindow(windowScene: windowScene)
-        
-        window?.rootViewController = collectionViewController
+        window?.rootViewController = assembly(scene: .multipleSections)
         window?.makeKeyAndVisible()
+    }
+}
+
+extension SceneDelegate {
+    func assembly(scene: Scene) -> UIViewController {
+        switch scene {
+        case .collection:
+            let collectionViewController = CollectionViewController()
+            collectionViewController.bookManager = BookTypeManager()
+            return collectionViewController
+        case .multipleSections:
+            return MultipleSectionsViewController()
+        }
     }
 }

@@ -17,7 +17,6 @@ class SectionHeaderView: UICollectionReusableView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = UIFont.boldSystemFont(ofSize: 24)
-        label.textColor = .white
         label.numberOfLines = 0
         addSubview(label)
         
@@ -33,8 +32,9 @@ class SectionHeaderView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(text: String) {
+    func configure(text: String, textColor: UIColor = .white) {
         label.text = text
+        label.textColor = textColor
     }
 }
 

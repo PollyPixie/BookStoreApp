@@ -16,6 +16,7 @@
 		731A9E6A2D1995BC00684F55 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E692D1995BC00684F55 /* CollectionViewController.swift */; };
 		731A9E6C2D199B9800684F55 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E6B2D199B9800684F55 /* SectionHeaderView.swift */; };
 		731A9E6E2D19F87A00684F55 /* CustomBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E6D2D19F87A00684F55 /* CustomBookCell.swift */; };
+		738045232D1D90B500A8E916 /* MultipleSectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738045222D1D90B500A8E916 /* MultipleSectionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		731A9E692D1995BC00684F55 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		731A9E6B2D199B9800684F55 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		731A9E6D2D19F87A00684F55 /* CustomBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBookCell.swift; sourceTree = "<group>"; };
+		738045222D1D90B500A8E916 /* MultipleSectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSectionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				731A9E692D1995BC00684F55 /* CollectionViewController.swift */,
+				738045222D1D90B500A8E916 /* MultipleSectionsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			files = (
 				731A9E6A2D1995BC00684F55 /* CollectionViewController.swift in Sources */,
 				731A9E6C2D199B9800684F55 /* SectionHeaderView.swift in Sources */,
+				738045232D1D90B500A8E916 /* MultipleSectionsViewController.swift in Sources */,
 				731A9E662D19947A00684F55 /* BookTypeManager.swift in Sources */,
 				731A9E522D18683500684F55 /* AppDelegate.swift in Sources */,
 				731A9E682D19949800684F55 /* BookType.swift in Sources */,
