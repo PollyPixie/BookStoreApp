@@ -84,14 +84,14 @@ private extension MultipleSectionsViewController {
     
     func createRectangleSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1/3),
+            widthDimension: .absolute(100),
             heightDimension: .fractionalHeight(1)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
+            widthDimension: .estimated(1),
             heightDimension: .fractionalHeight(0.2)
         )
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,subitems: [item])
