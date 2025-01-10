@@ -14,17 +14,20 @@ class CollectionViewController: UIViewController {
     private var bookTypes: [BookType] = []
     private var collectionView: UICollectionView!
     
+    private var diffableDataSource: UICollectionViewDiffableDataSource<BookType, Book>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        loadData()
+        setupDataSource()
+        applySnapshot()
     }
 }
 
 // MARK: - Setup View
 private extension CollectionViewController {
     func setupView() {
-        bookTypes = bookManager?.getBookTypes() ?? []
-        
         let layout = createLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(CustomBookCell.self,  forCellWithReuseIdentifier: "CustomBookCell")
@@ -34,10 +37,13 @@ private extension CollectionViewController {
             withReuseIdentifier: SectionHeaderView.reuseIdentifier
         )
         collectionView.backgroundColor = .black
-        collectionView.dataSource = self
         view.addSubview(collectionView)
         
         configureCollectionView()
+    }
+    
+    func loadData() {
+        bookTypes = bookManager?.getBookTypes() ?? []
     }
     
     func configureCollectionView() {
@@ -48,6 +54,50 @@ private extension CollectionViewController {
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+}
+
+// MARK: - DiffableDataSource
+private extension CollectionViewController {
+    func setupDataSource() {
+        diffableDataSource = UICollectionViewDiffableDataSource<BookType, Book>(
+            collectionView: collectionView,
+            cellProvider: { (collectionView, indexPath, book) -> UICollectionViewCell? in
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "CustomBookCell",
+                    for: indexPath
+                ) as? CustomBookCell else {
+                    return nil
+                }
+                cell.configure(with: book)
+                return cell
+            }
+        )
+        
+        diffableDataSource?.supplementaryViewProvider = { (collectionView, kind, indexPath) -> UICollectionReusableView? in
+            if kind == UICollectionView.elementKindSectionHeader {
+                guard let header = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: SectionHeaderView.reuseIdentifier,
+                    for: indexPath
+                ) as? SectionHeaderView else {
+                    return nil
+                }
+                let sectionTitle = self.diffableDataSource?.snapshot().sectionIdentifiers[indexPath.section].type
+                header.configure(text: sectionTitle ?? "")
+                return header
+            }
+            return nil
+        }
+    }
+    
+    func applySnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<BookType, Book>()
+        snapshot.appendSections(bookTypes)
+        for bookType in bookTypes {
+            snapshot.appendItems(bookType.books, toSection: bookType)
+        }
+        diffableDataSource?.apply(snapshot, animatingDifferences: true)
     }
 }
 
@@ -75,7 +125,7 @@ private extension CollectionViewController {
         
         return sectionLayout
     }
-
+    
     func createItem() -> NSCollectionLayoutItem {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.5),
@@ -104,46 +154,5 @@ private extension CollectionViewController {
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top
         )
-    }
-}
-
-// MARK: - UICollectionViewDataSource
-extension CollectionViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        bookTypes.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        bookTypes[section].books.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomBookCell", for: indexPath) as? CustomBookCell else {
-            fatalError("Unable to dequeue CustomBookCell")
-        }
-        
-        let book = bookTypes[indexPath.section].books[indexPath.item]
-        cell.configure(with: book)
-        
-        return cell
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        viewForSupplementaryElementOfKind kind: String,
-        at indexPath: IndexPath
-    ) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionHeader {
-            let header = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: SectionHeaderView.reuseIdentifier,
-                for: indexPath
-            ) as! SectionHeaderView
-            
-            let sectionTitle = bookTypes[indexPath.section].type
-            header.configure(text: sectionTitle)
-            return header
-        }
-        return UICollectionReusableView()
     }
 }
