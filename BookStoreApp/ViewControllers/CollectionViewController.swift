@@ -13,21 +13,42 @@ class CollectionViewController: UIViewController {
     
     private var bookTypes: [BookType] = []
     private var collectionView: UICollectionView!
-    
     private var diffableDataSource: UICollectionViewDiffableDataSource<BookType, Book>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        loadData()
-        setupDataSource()
-        applySnapshot()
     }
 }
 
 // MARK: - Setup View
 private extension CollectionViewController {
     func setupView() {
+        setupNavigationBar()
+        setupCollectionView()
+        loadData()
+        setupDataSource()
+        applySnapshot()
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.title = "Книги для души"
+        
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .black
+        appearance.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 34, weight: .bold)
+        ]
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+    }
+    
+    func setupCollectionView() {
         let layout = createLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(CustomBookCell.self,  forCellWithReuseIdentifier: "CustomBookCell")
@@ -40,6 +61,7 @@ private extension CollectionViewController {
         view.addSubview(collectionView)
         
         configureCollectionView()
+        collectionView.delegate = self
     }
     
     func loadData() {
@@ -156,3 +178,14 @@ private extension CollectionViewController {
         )
     }
 }
+
+// MARK: - UICollectionViewDelegate
+extension CollectionViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedBook = bookTypes[indexPath.section].books[indexPath.item]
+        let detailVC = DetailViewController()
+        detailVC.book = selectedBook
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+

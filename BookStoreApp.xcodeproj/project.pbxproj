@@ -16,6 +16,7 @@
 		731A9E6A2D1995BC00684F55 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E692D1995BC00684F55 /* CollectionViewController.swift */; };
 		731A9E6C2D199B9800684F55 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E6B2D199B9800684F55 /* SectionHeaderView.swift */; };
 		731A9E6E2D19F87A00684F55 /* CustomBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A9E6D2D19F87A00684F55 /* CustomBookCell.swift */; };
+		735883082D314CB600FD71CE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735883072D314CB600FD71CE /* DetailViewController.swift */; };
 		738045232D1D90B500A8E916 /* MultipleSectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738045222D1D90B500A8E916 /* MultipleSectionsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		731A9E692D1995BC00684F55 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		731A9E6B2D199B9800684F55 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		731A9E6D2D19F87A00684F55 /* CustomBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBookCell.swift; sourceTree = "<group>"; };
+		735883072D314CB600FD71CE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		738045222D1D90B500A8E916 /* MultipleSectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSectionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				731A9E692D1995BC00684F55 /* CollectionViewController.swift */,
+				735883072D314CB600FD71CE /* DetailViewController.swift */,
 				738045222D1D90B500A8E916 /* MultipleSectionsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				735883082D314CB600FD71CE /* DetailViewController.swift in Sources */,
 				731A9E6A2D1995BC00684F55 /* CollectionViewController.swift in Sources */,
 				731A9E6C2D199B9800684F55 /* SectionHeaderView.swift in Sources */,
 				738045232D1D90B500A8E916 /* MultipleSectionsViewController.swift in Sources */,
