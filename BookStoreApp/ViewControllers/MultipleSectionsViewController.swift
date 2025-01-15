@@ -14,6 +14,7 @@ class MultipleSectionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupNavigationBar()
     }
 }
 
@@ -28,7 +29,7 @@ private extension MultipleSectionsViewController {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: SectionHeaderView.reuseIdentifier
         )
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .black
         collectionView.dataSource = self
         view.addSubview(collectionView)
         
@@ -41,7 +42,28 @@ private extension MultipleSectionsViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    func setupNavigationBar() {
+        navigationItem.title = "Поиск"
+        
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .black
+        
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 20, weight: .bold)
+        ]
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
 }
+
+
 
 // MARK: - Layout Configuration
 private extension MultipleSectionsViewController {
