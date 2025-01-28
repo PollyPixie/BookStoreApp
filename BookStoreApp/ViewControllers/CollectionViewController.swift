@@ -15,6 +15,15 @@ class CollectionViewController: UIViewController {
     private var collectionView: UICollectionView!
     private var diffableDataSource: UICollectionViewDiffableDataSource<BookType, Book>?
     
+    init(bookTypeManager: IBookTypeManager) {
+            self.bookManager = bookTypeManager
+            super.init(nibName: nil, bundle: nil)
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -24,28 +33,11 @@ class CollectionViewController: UIViewController {
 // MARK: - Setup View
 private extension CollectionViewController {
     func setupView() {
-        setupNavigationBar()
+        //setupNavigationBar()
         setupCollectionView()
         loadData()
         setupDataSource()
         applySnapshot()
-    }
-    
-    func setupNavigationBar() {
-        navigationItem.title = "Книги для души"
-        
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .black
-        appearance.largeTitleTextAttributes = [
-            .foregroundColor: UIColor.white,
-            .font: UIFont.systemFont(ofSize: 34, weight: .bold)
-        ]
-        
-        navigationController?.navigationBar.standardAppearance = appearance
     }
     
     func setupCollectionView() {

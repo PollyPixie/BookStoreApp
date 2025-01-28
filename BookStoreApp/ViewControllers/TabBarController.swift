@@ -8,70 +8,63 @@
 import UIKit
 
 enum TabBarItem {
-    case сollectionViewController
-    case multipleSectionsViewController
-    
+    case collectionVC
+    case multipleSectionsVC
     
     var title: String {
         switch self {
-        case .сollectionViewController: return "Home"
-        case .multipleSectionsViewController: return "Search"
+        case .collectionVC: return "Home"
+        case .multipleSectionsVC: return "Search"
         }
     }
     
     var icon: UIImage? {
         switch self {
-        case .сollectionViewController: return UIImage(systemName: "house.fill")
-        case .multipleSectionsViewController: return UIImage(systemName: "magnifyingglass")
+        case .collectionVC: return UIImage(systemName: "house.fill")
+        case .multipleSectionsVC: return UIImage(systemName: "magnifyingglass")
         }
     }
+    
+    static let allTabBarItems = [collectionVC, multipleSectionsVC]
 }
 
-class TabBarController: UITabBarController {
-    private let dataSource: [TabBarItem] = [.сollectionViewController, .multipleSectionsViewController]
+final class TabBarController: UITabBarController {
+    private let dataSource: [TabBarItem] = [.collectionVC, .multipleSectionsVC]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buildTabBarComponents()
         setupTabBar()
     }
 }
 
-//MARK: - Settings View
 private extension TabBarController {
-    private func buildTabBarComponents() {
-        viewControllers = dataSource.map {
-            switch $0 {
-            case .сollectionViewController:
-                let collectionViewController = CollectionViewController()
-                collectionViewController.bookManager = BookTypeManager()
-                return UINavigationController(rootViewController: collectionViewController)
-            case .multipleSectionsViewController:
-                return UINavigationController(rootViewController: MultipleSectionsViewController())
-            }
+    func setupTabBar() {
+        let controllers: [UINavigationController] = TabBarItem.allTabBarItems.map { item in
+            getTabBarController(item)
         }
+        setViewControllers(controllers, animated: true)
     }
     
-    private func setupTabBar() {
-        let appearance = UITabBarAppearance()
+    private func getTabBarController(_ item: TabBarItem) -> UINavigationController {
+        let navController = UINavigationController()
+        navigationController?.navigationBar.tintColor = .white //это чтоооо делает 
+        navController.navigationBar.prefersLargeTitles = false// было true надо разобраться
+        
+        let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .black
         
-        appearance.stackedLayoutAppearance.normal.iconColor = .gray
-        appearance.stackedLayoutAppearance.selected.iconColor = .white
-        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
-            .foregroundColor: UIColor.gray
-        ]
-        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
-            .foregroundColor: UIColor.white
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 20, weight: .bold)
         ]
         
-        tabBar.standardAppearance = appearance
-        tabBar.scrollEdgeAppearance = appearance
+        navController.navigationBar.standardAppearance = appearance
+        navController.navigationBar.scrollEdgeAppearance = appearance
         
-        viewControllers?.enumerated().forEach { index, viewController in
-            viewController.tabBarItem.title = dataSource[index].title
-            viewController.tabBarItem.image = dataSource[index].icon
-        }
+        navController.tabBarItem.title = item.title
+        navController.tabBarItem.image = item.icon
+        
+        return navController
     }
 }
